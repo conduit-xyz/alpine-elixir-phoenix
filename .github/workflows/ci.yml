@@ -53,10 +53,7 @@ jobs:
 
     - name: Login
       if: ${{ github.event_name == 'push' }}
-      uses: docker/login-action@v1
-      with:
-        username: ${{ secrets.DOCKERHUB_USERNAME }}
-        password: ${{ secrets.DOCKERHUB_TOKEN }}
+      run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u $ --password-stdin
 
     - name: Publish Image
       if: ${{ github.event_name == 'push' }}
