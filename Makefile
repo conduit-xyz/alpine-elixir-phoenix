@@ -44,6 +44,7 @@ clean: ## Clean up generated images
 
 rebuild: clean build ## Rebuild the Docker image
 
+
 release: setup-buildx ## Build and release the Docker image to Docker Hub
 	docker buildx build --push \
 		--build-arg ELIXIR_VERSION=$(VERSION) \
